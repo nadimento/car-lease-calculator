@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react";
 import ResultList from "./components/ResultList";
 import Form from "./components/Form";
+import { useLocalStorage } from "./components/useLocalStorage";
 
 export default function App() {
-  const [carList, setCarList] = useState([], function () {
-    const storedvalue = localStorage.getItem("carList");
-    return JSON.parse(storedvalue);
-  });
-
+  const [carList, setCarList] = useLocalStorage([], "carList");
   function handleDeleteCar(id) {
     setCarList((prevList) => prevList.filter((car) => car.id !== id));
   }
@@ -16,12 +13,17 @@ export default function App() {
     setCarList((prevList) => [...prevList, item]);
   }
 
-  useEffect(
-    function () {
-      localStorage.setItem("carList", JSON.stringify(carList));
-    },
-    [carList]
-  );
+  // const [carList, setCarList] = useState([], function () {
+  //   const storedvalue = localStorage.getItem("carList");
+  //   return JSON.parse(storedvalue);
+  // });
+
+  // useEffect(
+  //   function () {
+  //     localStorage.setItem("carList", JSON.stringify(carList));
+  //   },
+  //   [carList]
+  // );
 
   return (
     <div className="app-container">
