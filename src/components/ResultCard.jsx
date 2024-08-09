@@ -8,7 +8,7 @@ export default function ResultCard({ car, monthlyPayment, onDeleteCar }) {
       </button>
       <h2>{car.carType}</h2>
       <p>Lease Term: {car.leaseTerm} Months</p>
-      <button className="btn btn-result">{`$${monthlyPayment} / Monthly`}</button>
+      <button className="btn btn-result">{`$${monthlyPayment} / Month`}</button>
     </div>
   );
 }
