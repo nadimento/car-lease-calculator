@@ -13,9 +13,9 @@ export default function App() {
     setCarList((prevList) => [...prevList, item]);
   }
 
-  // const [carList, setCarList] = useState([], function () {
-  //   const storedvalue = localStorage.getItem("carList");
-  //   return JSON.parse(storedvalue);
+  // const [carList, setCarList] = useState(() => {
+  //   const storedValue = localStorage.getItem("carList");
+  //   return storedValue ? JSON.parse(storedValue) : [];
   // });
 
   // useEffect(
