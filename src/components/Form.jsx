@@ -15,16 +15,18 @@ export default function Form({ onAddNewcar }) {
     e.preventDefault();
 
     if (
-      !carType ||
-      !leaseTerm ||
-      !monthlyPayments ||
-      !insurance ||
-      !licenseRenewel ||
-      !maintenance ||
-      !driveOff ||
-      downPayment < 0
-    )
+      carType === "" ||
+      leaseTerm === "" ||
+      monthlyPayments === "" ||
+      insurance === "" ||
+      licenseRenewel === "" ||
+      maintenance === "" ||
+      driveOff === "" ||
+      downPayment === ""
+    ) {
+      alert("All fields must be filled out.");
       return;
+    }
 
     const newItem = {
       id: crypto.randomUUID(),
@@ -54,6 +56,7 @@ export default function Form({ onAddNewcar }) {
     <form onSubmit={handleSubmit}>
       <FormInput
         type="text"
+        isNumber={false}
         id="car-type"
         text="Name of Car"
         placeHolder="Make and Model of Car"
@@ -62,7 +65,8 @@ export default function Form({ onAddNewcar }) {
       />
 
       <FormInput
-        type="number"
+        type="text"
+        isNumber={true}
         number="number"
         id="lease-term"
         text="Lease Term"
@@ -72,7 +76,8 @@ export default function Form({ onAddNewcar }) {
       />
 
       <FormInput
-        type="number"
+        type="text"
+        isNumber={true}
         id="monthly-payment"
         text="Payment - Monthly"
         placeHolder="Amount"
@@ -81,7 +86,8 @@ export default function Form({ onAddNewcar }) {
       />
 
       <FormInput
-        type="number"
+        type="text"
+        isNumber={true}
         id="monthly-insurance"
         text="Insurance - Monthly"
         placeHolder="Amount"
@@ -90,7 +96,8 @@ export default function Form({ onAddNewcar }) {
       />
 
       <FormInput
-        type="number"
+        type="text"
+        isNumber={true}
         id="license-renewal"
         text="License Renewal - Yearly"
         placeHolder="Amount"
@@ -99,7 +106,8 @@ export default function Form({ onAddNewcar }) {
       />
 
       <FormInput
-        type="number"
+        type="text"
+        isNumber={true}
         id="maintenance"
         text="Maintenance - Yearly"
         placeHolder="Amount"
@@ -108,7 +116,8 @@ export default function Form({ onAddNewcar }) {
       />
 
       <FormInput
-        type="number"
+        type="text"
+        isNumber={true}
         id="driveoff"
         text="Drive Off"
         placeHolder="Amount"
@@ -117,7 +126,8 @@ export default function Form({ onAddNewcar }) {
       />
 
       <FormInput
-        type="number"
+        type="text"
+        isNumber={true}
         id="downpayment"
         text="Downpayment"
         placeHolder="Amount"

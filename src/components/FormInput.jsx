@@ -5,6 +5,7 @@ export default function FormInput({
   placeHolder,
   handleChange,
   value,
+  isNumber,
 }) {
   return (
     <>
@@ -15,9 +16,7 @@ export default function FormInput({
         placeholder={placeHolder}
         value={value}
         onChange={(e) =>
-          handleChange(
-            type === "number" ? Number(e.target.value) : e.target.value
-          )
+          handleChange(isNumber ? Number(e.target.value) : e.target.value)
         }
       />
     </>
